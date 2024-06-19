@@ -68,7 +68,7 @@ if __name__ == "__main__":
     
     while not nim.terminal_test(state):
         if state.to_move == 'MAX':
-            move = alpha_beta_player(nim, state)
+            move = random_player(nim, state)
             print(move)
             state = nim.result(state, move)
             nim.display(state)
@@ -80,7 +80,7 @@ if __name__ == "__main__":
             nim.display(state)
     
     
-    utility = nim.play_game(alpha_beta_player, query_player)  # computer moves first
+    utility = nim.play_game(random_player, query_player)  # computer moves first
     if utility < 0:
          print("MIN won the game")
     else:
