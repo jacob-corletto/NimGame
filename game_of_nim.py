@@ -45,7 +45,7 @@ class GameOfNim(Game):
 
     def compute_utility(self, board, player):
         """Compute the utility of the current board state."""
-        if self.terminal_test(self.State(to_move=player, utility=state.utility, board=state.board, moves=state.moves)): #if this is true, 
+        if self.terminal_test(self.State(to_move=player, utility=0, board=board, moves=[])): #if this is true, 
             # return -1 if player == 'MAX' else 1
             if player == 'MAX':
                 return -1
