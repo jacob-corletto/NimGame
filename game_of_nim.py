@@ -15,7 +15,7 @@ class GameOfNim(Game):
 
     def result(self, state, move):
         """Return the resulting state after a move."""
-        new_board = state.board[:]
+        new_board = state.board.copy()
         row, count = move
         new_board[row] -= count
         next_player = 'MIN' if state.to_move == 'MAX' else 'MAX'
@@ -48,9 +48,9 @@ class GameOfNim(Game):
         if self.terminal_test(self.State(to_move=player, utility=0, board=board, moves=[])): #if this is true, 
             # return -1 if player == 'MAX' else 1
             if player == 'MAX':
-                return -1
-            else:
                 return 1
+            else:
+                return -1
         return 0
 
     class State:
@@ -91,4 +91,3 @@ if __name__ == "__main__":
          print("MIN won the game")
     else:
          print("MAX won the game")
-
